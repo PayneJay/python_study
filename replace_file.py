@@ -25,29 +25,38 @@ f.writelines('<resources>' + '\n')
 # 循环读取新文件
 for line in f_new:
     if line.startswith('<string'):
+        # 提取key并判断key的合法性
         start = line.index('"') + 1
         end = line.index('">')
+        start1 = end + 1
+        end1 = line.index('</string>')
         key = line[start:end]
-        # 判断是否包含关键字
+        value = line[start1:end1]
+
+        # 判断key是否是关键字
         if key in key_word:
             print(key)
             print('key不能是Java关键字：')
         else:
             valid = True
-            # 判断是否包含非法字符
+            # 判断key中否包含非法字符
             for text in invalid_str:
                 if text in key:
                     print(key)
                     print('该key中包含非法字符：')
                     valid = False
                     break
-            # 如果合法则写入
+            # key是合法的，替换value中需要转义的字符，例如英文中的'
             if valid:
-                # print(line)
-                f.write(line)
+                print(line)
+                line = line.replace("\'", "\\'").replace("&", "&amp;")
+                print(line)
+                f.writelines(line)
 
+f.writelines('<string name="imageview">imageview</string>')
 # 写xml结束标签
-f.write('</resources>')
-
+f.writelines('\n')
+f.writelines('</resources>')
+print('替换完成！')
 f.close()
 f_new.close()
