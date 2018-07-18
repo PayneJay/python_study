@@ -8,7 +8,8 @@ if len(sys.argv) < 3:
     sys.exit()
 
 # 定义命名非法字符集&Java关键字集
-invalid_str = ['/', ' ']
+invalid_key = ['/', ' ']
+invalid_value = ['% {', '%d']
 key_word = ['return', 'if']
 # 设置三个位置变量
 old_file, target_file = sys.argv[1], sys.argv[2]
@@ -40,22 +41,31 @@ for line in f_new:
         else:
             valid = True
             # 判断key中否包含非法字符
-            for text in invalid_str:
+            for text in invalid_key:
                 if text in key:
                     print(key)
                     print('该key中包含非法字符：')
                     valid = False
                     break
+            # 判断value中是否包含非法字符
+            for text in invalid_value:
+                if text in value:
+                    print(value)
+                    valid = False
+                    break
             # key是合法的，替换value中需要转义的字符，例如英文中的'
             if valid:
-                print(line)
                 line = line.replace("\'", "\\'").replace("&", "&amp;")
-                print(line)
                 f.writelines(line)
 
-f.writelines('<string name="imageview">imageview</string>')
-# 写xml结束标签
 f.writelines('\n')
+f.writelines('<string name="imageview">imageView</string> \n')
+f.writelines('<string name="icon_help">&#xe616;</string> \n' +
+             '<string name="icon_arrow_down">&#xe612;</string> \n' +
+             '<string name="icon_star_empty">&#xe60b;</string> \n' +
+             '<string name="icon_flash_booking">&#xe617;</string> \n' +
+             '<string name="icon_arrow_right">&#xe61a;</string> \n')
+# 写xml结束标签
 f.writelines('</resources>')
 print('替换完成！')
 f.close()
