@@ -4,7 +4,7 @@ import sys
 
 # 小于三个位置变量则退出脚本
 if len(sys.argv) < 3:
-    print("用法：./replace_file.py 项目中res文件夹的路径 存放下载的多语言文件的文件夹路径")
+    print("用法：python ./replace_file.py 项目中res文件夹的路径 存放下载的多语言文件的文件夹路径")
     sys.exit()
 
 # 定义命名非法字符集&Java关键字集

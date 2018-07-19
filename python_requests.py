@@ -6,7 +6,9 @@ import sys
 
 # 小于三个位置变量则退出脚本
 if len(sys.argv) < 3:
-    print("用法：./python_requests.py 存放下载的多语言文件的文件夹路径" "需要下载的环境（alpha/release)")
+    print(
+        "用法：python3 ./python_requests.py 存放下载的多语言文件的文件夹路径 需要下载的环境（alpha/release)"
+    )
     sys.exit()
 
 language_dir = sys.argv[1]
