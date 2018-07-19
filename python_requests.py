@@ -17,6 +17,7 @@ release_url = 'http://translate.fishtrip.cn/api/v2/language_dicts'
 url = release_url if sys.argv[2] == 'release' else alpha_url
 
 
+# 获取请求下载多语言文件的url地址
 def get_url(local):
     # 默认url及参数
     payload = {
@@ -47,6 +48,7 @@ def load_write(path, url):
     f.truncate(0)
     result.encoding = 'utf-8'
     f.write(result.text)
+    f.close()
 
 
 # 中文简体

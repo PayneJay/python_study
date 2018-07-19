@@ -31,7 +31,9 @@ for line in f_new:
         end = line.index('">')
         start1 = end + 1
         end1 = line.index('</string>')
+        # 截取key值
         key = line[start:end]
+        # 截取value值
         value = line[start1:end1]
 
         # 判断key是否是关键字
