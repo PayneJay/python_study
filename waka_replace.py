@@ -17,7 +17,7 @@ target_path = sys.argv[2]
 def executive(other_path, file_name):
     os.popen('python replace_file.py' + ' ' + base_path + other_path + ' ' +
              target_path + file_name)
-    print(file_name, '替换完成')
+    print(other_path, '替换完成')
 
 
 # 替换泰语
@@ -35,4 +35,4 @@ executive('/values-zh-rTW/strings.xml', '/language_zh-TW.xml')
 # 替换简体中文
 executive('/values-zh-rCN/strings.xml', '/language_zh-CN.xml')
 # 替换默认语言
-executive('/values-zh-rCN/strings.xml', '/language_zh-CN.xml')
+executive('/values/strings.xml', '/language_zh-CN.xml')
