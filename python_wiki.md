@@ -15,8 +15,8 @@
     其中`~/Documents/workspace/wakaandroidstudio/wakaAndroid/src/main/res`表示本地项目的res文件夹路径，
     `~/Desktop/waka_language`是之前定义的存放下载文件的路径。
 ## 问题：
-1. 关于os模块（主要是在一个脚本中调用另一个脚本）
-1. 关于sys模块（主要是获取从命令行中输入的参数）
+1. 关于os模块（脚本中用到的功能主要是在一个脚本中调用另一个脚本）
+1. 关于sys模块（脚本中用到的功能主要是获取从命令行中输入的参数）
 1. open文件时的几个参数说明
 1. writelines和write区别
 1. python中的三元运算符（`url = release_url if sys.argv[2] == 'release' else alpha_url`）
