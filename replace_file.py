@@ -13,12 +13,12 @@ invalid_values = ['% {', '%d']
 key_words = ['return', 'if']
 # 设置三个位置变量
 old_file, target_file = sys.argv[1], sys.argv[2]
+# 打开新文件
+f_new = open(target_file, 'r')
 # 打开需要替换的文件
 f = open(old_file, 'wt')
 # 清空当前文件内容
 f.truncate(0)
-# 打开新文件
-f_new = open(target_file, 'r')
 # 写xml头
 f.writelines('<?xml version="1.0" encoding="utf-8"?>' + '\n')
 f.writelines('<resources>' + '\n')

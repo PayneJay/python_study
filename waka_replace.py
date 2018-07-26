@@ -4,13 +4,13 @@ import os
 import sys
 
 # 小于三个位置变量则退出脚本
-if len(sys.argv) < 3:
-    print("用法：python ./waka_replace.py 项目中res文件夹的路径 存放下载的多语言文件的文件夹路径")
+if len(sys.argv) < 2:
+    print("用法：python ./waka_replace.py 项目中res文件夹的路径")
     sys.exit()
 
 # 获取参数
 base_path = sys.argv[1]
-target_path = sys.argv[2]
+target_path = os.getcwd() + '/waka_languages'
 
 
 # 执行replace_file.py脚本

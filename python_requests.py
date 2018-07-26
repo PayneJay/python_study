@@ -3,18 +3,20 @@
 import requests
 import json
 import sys
+import os
 
 # 小于三个位置变量则退出脚本
-if len(sys.argv) < 3:
-    print(
-        "用法：python3 ./python_requests.py 存放下载的多语言文件的文件夹路径 需要下载的环境（alpha/release)"
-    )
+if len(sys.argv) < 2:
+    print("用法：python3 ./python_requests.py 需要下载的环境（alpha/release)")
     sys.exit()
 
-language_dir = sys.argv[1]
+# 创建存放多语言文件的文件夹
+language_dir = 'waka_languages'
+os.makedirs(language_dir)
+
 alpha_url = 'http://alpha-translate.fishtrip.cn/api/v2/language_dicts'
 release_url = 'http://translate.fishtrip.cn/api/v2/language_dicts'
-url = release_url if sys.argv[2] == 'release' else alpha_url
+url = release_url if sys.argv[1] == 'release' else alpha_url
 
 
 # 获取请求下载多语言文件的url地址
