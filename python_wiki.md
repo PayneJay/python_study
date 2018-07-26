@@ -15,26 +15,26 @@
     其中`~/Documents/workspace/wakaandroidstudio/wakaAndroid/src/main/res`表示本地项目的res文件夹路径，
     `~/Desktop/waka_language`是之前定义的存放下载文件的路径。
 ## 问题：
-1. 关于os模块（主要是在一个脚本中调用另一个脚本）
-1. 关于sys模块（主要是获取从命令行中输入的参数）
+1. 关于os模块（脚本中用到的功能主要是在一个脚本中调用另一个脚本）
+1. 关于sys模块（脚本中用到的功能主要是获取从命令行中输入的参数）
 1. open文件时的几个参数说明
 1. writelines和write区别
-1. python中的三元运算符（`url = release_url if sys.argv[2] == 'release' else alpha_url`）
+1. python中的三元表达式（`url = release_url if sys.argv[2] == 'release' else alpha_url`）
 1. requests库简单使用
 ## os模块：
 > Python os 模块提供了一个统一的操作系统接口函数, 这些接口函数通常是平台指定的，os 模块能在不同操作系统平台（如 nt 或 posix）中的特定函数间自动切换,从而能实现跨平台操作。
 
-### os模块中的常用函数
-* `os.getcwd()`：获取当前工作目录，相当于执行`pwd`命令
-* `os.chdir("dirname")`：改变当前脚本的工作目录，相当于执行`cd`命令
+### os模块中的常用函数
+* `os.getcwd()`：获取当前工作目录，相当于执行`pwd`命令
+* `os.chdir("dirname")`：改变当前脚本的工作目录，相当于执行`cd`命令
 * `os.name`：获取当前使用的操作系统（其中 ‘nt’ 是windows，’posix’ 是 linux 或者 unix）
 * `os.environ`：获取系统环境变量
 * `os.makedirs('dirname1/dirname2')`：可生成多层递归目录，父目录如果不存在，递归生成
-* `os.removedirs('dirname1')`：若目录为空，则删除，并递归到上级目录，若也为空，则删除，依此类推
+* `os.removedirs('dirname1')`：若目录为空，则删除，并递归到上级目录，若也为空，则删除，依此类推
 * `os.mkdir('dirname')`：生成单级目录，相当于执行`mkdir dirname`命令
-* `os.rmdir('dirname')`：删除单级空目录，若目录不为空则无法删除，会报错；相当于执行`rmdir dirname`命令
+* `os.rmdir('dirname')`：删除单级空目录，若目录不为空则无法删除，会报错；相当于执行`rmdir dirname`命令
 * `os.listdir('dirname')`：列出指定目录下的所有文件和子目录，包括隐藏文件，并以列表形式打印
-* `os.remove()`：删除一个文件
+* `os.remove()`：删除一个文件
 * `os.rename("oldname", "newname")`：重命名文件/目录
 * `os.popen('bash command')`：运行shell命令，生成对象，可赋给变量，再用read读取
 ## sys模块：
@@ -56,14 +56,14 @@
 > `open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None)`：在使用该函数的时候，除了file参数必填外，其他参数可以选用。
 ### 参数说明
 * file：文件名称
-* mode：文件的打开方式，函数提供了一些可选的打开方式，其中默认方式为‘rt’   
-*‘r’*  ：open for reading (default)——只读，默认方式  
-*‘w’*  ：open for writing, truncating the file first——写入，会覆盖源文件内容  
-*‘x’*  ：create a new file and open it for writing——创建新文件，并写入内容，如果文件已存在，将会报错：FileExistsError  
-*‘a’*  ：open for writing, appending to the end of the file if it exists——写入，如果文件有内容，则在末尾追加写入  
-*‘b’*  ：binary mode——二进制模式  
-*‘t’*  ：text mode (default)——文本模式  
-*‘+’*  ：open a disk file for updating (reading and writing)——更新磁盘文件，读写     
+* mode：文件的打开方式，函数提供了一些可选的打开方式，其中默认方式为‘rt’   
+*‘r’*  ：open for reading (default)——只读，默认方式  
+*‘w’*  ：open for writing, truncating the file first——写入，会覆盖源文件内容  
+*‘x’*  ：create a new file and open it for writing——创建新文件，并写入内容，如果文件已存在，将会报错：FileExistsError  
+*‘a’*  ：open for writing, appending to the end of the file if it exists——写入，如果文件有内容，则在末尾追加写入  
+*‘b’*  ：binary mode——二进制模式  
+*‘t’*  ：text mode (default)——文本模式  
+*‘+’*  ：open a disk file for updating (reading and writing)——更新磁盘文件，读写     
 *'U'*   ：universal newline mode (deprecated)——在paython3中已经弃用
 * buffering：用于设置缓存策略   
 在二进制模式下，使用0来切换缓冲；在文本模式下，通过1表示行缓冲（固定大小的缓冲区）。
@@ -77,15 +77,15 @@
 * closefd：false：文件关闭时，底层文件描述符仍然为打开状态，这是不被允许的，所以，需要设置为ture
 * opener：可以通过调用*opener*方式，使用自定义的开启器。底层文件描述符是通过调用*opener*或者*file*, *flags*获得的。
 *opener*必须返回一个打开的文件描述。将os.open作为*opener*的结果，在功能上，类似于通过None。
-## write()和writelines()：
-- `file.write(str)`：方法用于向文件中写入指定字符串。在文件关闭前或缓冲区刷新前，字符串内容存储在缓冲区中，这时你在文件中是看不到写入的内容的。如果文件打开模式带 b，那写入文件内容时，str (参数)要用 encode 方法转为 bytes 形式，否则报错：TypeError: a bytes-like object is required, not 'str'。
+## write()和writelines()：
+- `file.write(str)`：方法用于向文件中写入指定字符串。在文件关闭前或缓冲区刷新前，字符串内容存储在缓冲区中，这时你在文件中是看不到写入的内容的。如果文件打开模式带 b，那写入文件内容时，str (参数)要用 encode 方法转为 bytes 形式，否则报错：TypeError: a bytes-like object is required, not 'str'。
 - `file.writelines(sequence)`：方法用于向文件中写入一序列的字符串。这一序列字符串可以是由迭代对象产生的，如一个字符串列表。换行需要制定换行符 \n。
 ## python中的三元表达式：
 > python中的三目运算符不像其他语言,其他的一般都是
 `condition ? condition_is_true : condition_is_false`，但是在python中写法是这样：
-`condition_is_true if condition else condition_is_false`   
+`condition_is_true if condition else condition_is_false`   
 它允许用简单的一行快速判断，而不是使用复杂的多行if语句。 这在大多数时候非常有用，而且可以使代码简单可维护。还有一个用法比较少见，它使用了元组：
-#### 伪代码
+#### 伪代码
 ```python
 #(返回假，返回真)[真或假]
 (if_test_is_false, if_test_is_true)[test]
@@ -100,13 +100,13 @@ print("Ali is", fitness)
 ## requests库：
 > Python内置的urllib模块，用于访问网络资源。但是，它用起来比较麻烦，而且，缺少很多实用的高级功能。更好的方案是使用requests。它是一个Python第三方库，处理URL资源特别方便。
 
-requests库不是python自带的，因此使用这个库需要安装.[使用详情](http://docs.python-requests.org/zh_CN/latest/user/quickstart.html)
+requests库不是python自带的，因此使用这个库需要安装.[使用详情](http://docs.python-requests.org/zh_CN/latest/user/quickstart.html)
 ### 安装requests
 ```
 $ pip install requests
 ```
 ### 发送请求
-首先需要*import*导入这个库，然后我们可以尝试来发送请求获取Github的公共时间线：
+首先需要*import*导入这个库，然后我们可以尝试来发送请求获取Github的公共时间线：
 ```
 >>> r = requests.get('https://api.github.com/events')
 ```
