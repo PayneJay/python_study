@@ -19,7 +19,7 @@
 1. 关于sys模块（脚本中用到的功能主要是获取从命令行中输入的参数）
 1. open文件时的几个参数说明
 1. writelines和write区别
-1. python中的三元运算符（`url = release_url if sys.argv[2] == 'release' else alpha_url`）
+1. python中的三元表达式（`url = release_url if sys.argv[2] == 'release' else alpha_url`）
 1. requests库简单使用
 ## os模块：
 > Python os 模块提供了一个统一的操作系统接口函数, 这些接口函数通常是平台指定的，os 模块能在不同操作系统平台（如 nt 或 posix）中的特定函数间自动切换,从而能实现跨平台操作。
