@@ -47,7 +47,7 @@
 * ` sys.exit([arg])`：程序中间的退出, arg=0为正常退出   
 一般情况下执行到主程序末尾，解释器自动退出，但是如果需要中途退出程序，可以调用`sys.exit`函数，带有一个可选的整数参数返回给调用它的程序，表示你可以在主程序中捕获对`sys.exit`的调用。（0是正常退出，其他为异常）当然也可以用字符串参数，表示错误不成功的报错信息。
 * `sys.modules`：`sys.modules`是一个全局字典，该字典是python启动后就加载在内存中。每当程序员导入新的模块，`sys.modules`将自动记录该模块。当第二次再导入该模块时，python会直接到字典中查找，从而加快了程序运行的速度。它拥有字典所拥有的一切方法.
-* `sys.getdefaultencoding()` ：获取系统当前编码，一般默认为ascii。 
+* `sys.getdefaultencoding()` ：获取系统当前编码，在python3以下的版本一般默认为ascii，python3则默认为utf-8。 
 * `sys.setdefaultencoding()` ：设置系统默认编码，执行dir（sys）时不会看到这个方法，在解释器中执行不通过，可以先执行reload(sys)，在执行 `setdefaultencoding(‘utf8’)`，此时将系统默认编码设置为utf8。 
 * `sys.getfilesystemencoding()` ：获取文件系统使用编码方式，Windows下返回’mbcs’，mac下返回’utf-8’
 * ` sys.stdin, sys.stdout, sys.stderr `：stdin , stdout , 以及stderr 变量包含与标准I/O 流对应的流对象. 如果需要更好地控制输出,而print 不能满足你的要求, 它们就是你所需要的. 你也可以替换它们, 这时候你就可以重定向输出和输入到其它设备( device ), 或者以非标准的方式处理它们
