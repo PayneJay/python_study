@@ -12,7 +12,8 @@ if len(sys.argv) < 2:
 
 # 创建存放多语言文件的文件夹
 language_dir = 'waka_languages'
-os.makedirs(language_dir)
+if not os.path.exists(language_dir):
+    os.makedirs(language_dir)
 
 alpha_url = 'http://alpha-translate.fishtrip.cn/api/v2/language_dicts'
 release_url = 'http://translate.fishtrip.cn/api/v2/language_dicts'

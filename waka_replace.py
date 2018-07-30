@@ -15,9 +15,9 @@ target_path = os.getcwd() + '/waka_languages'
 
 # 执行replace_file.py脚本
 def executive(other_path, file_name):
-    os.popen('python replace_file.py' + ' ' + base_path + other_path + ' ' +
-             target_path + file_name)
-    print(other_path, '替换完成')
+    os.popen('python3 ' + os.getcwd() + '/replace_file.py' + ' ' + base_path +
+             other_path + ' ' + target_path + file_name)
+    print('{} 替换完成'.format(other_path))
 
 
 # 替换泰语
