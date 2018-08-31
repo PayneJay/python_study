@@ -21,7 +21,7 @@ f = open(old_file, 'wt')
 f.truncate(0)
 # 写xml头
 f.writelines('<?xml version="1.0" encoding="utf-8"?>' + '\n')
-f.writelines('<resources>' + '\n')
+f.writelines('<resources>' + '\n') 
 
 # 循环读取新文件
 for line in f_new:

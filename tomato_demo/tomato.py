@@ -5,7 +5,7 @@ import random
 # import time
 import requests
 import json
-from pyecharts import Geo
+# from pyecharts import Geo
 from pyecharts import Line
 from pyecharts import Bar
 from pyecharts import Overlap
