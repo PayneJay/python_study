@@ -8,7 +8,7 @@ if len(sys.argv) < 3:
     sys.exit()
 
 # 定义命名非法字符集&Java关键字集
-invalid_keys = ['/', ' ']
+invalid_keys = ['/', ' ', '（']
 invalid_values = ['% {', '%d']
 key_words = ['return', 'if']
 # 设置三个位置变量
@@ -21,7 +21,7 @@ f = open(old_file, 'wt')
 f.truncate(0)
 # 写xml头
 f.writelines('<?xml version="1.0" encoding="utf-8"?>' + '\n')
-f.writelines('<resources>' + '\n') 
+f.writelines('<resources>' + '\n')
 
 # 循环读取新文件
 for line in f_new:
