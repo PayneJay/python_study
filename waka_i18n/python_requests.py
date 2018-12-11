@@ -43,15 +43,13 @@ def get_url(local):
 
 # 获取服务器多语言文件并写入本地文件
 def load_write(path, url):
-    f = open(path, 'wt', encoding='utf-8')
-
-    # 获取WAKA中文简体多语言文件
-    result = requests.get(url)
-    # 清空当前文件内容
-    f.truncate(0)
-    result.encoding = 'utf-8'
-    f.write(result.text)
-    f.close()
+    with open(path, 'wt', encoding='utf-8') as f:
+        # 获取WAKA中文简体多语言文件
+        result = requests.get(url)
+        # 清空当前文件内容
+        f.truncate(0)
+        result.encoding = 'utf-8'
+        f.write(result.text)
 
 
 # 中文简体
