@@ -3,6 +3,7 @@
 import os
 import sys
 
+# /Users/weipengjie/Documents/workspace/wakaandroidstudio/wakaAndroid/src/main/res
 # 小于三个位置变量则退出脚本
 if len(sys.argv) < 2:
     print("用法：python ./waka_replace.py 项目中res文件夹的路径")
