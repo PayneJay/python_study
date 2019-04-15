@@ -8,7 +8,7 @@ if len(sys.argv) < 3:
     sys.exit()
 
 # 定义命名非法字符集&Java关键字集
-invalid_keys = ['/', ' ', '（']
+invalid_keys = ['/', ' ', '（', '-']
 invalid_values = ['% {', '%d']
 key_words = ['return', 'if']
 # 设置三个位置变量
